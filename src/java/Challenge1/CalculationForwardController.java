@@ -19,6 +19,9 @@ public class CalculationForwardController extends HttpServlet {
     private String rlegA;
     private String rlegB;
     private String rArea;
+    private String radius;
+    private double pi = 3.14159265359;
+    private String cArea;
 
     /**
      * Processes requests for both HTTP
@@ -41,15 +44,25 @@ public class CalculationForwardController extends HttpServlet {
         calculateRectangleArea();
         request.setAttribute("rArea", rArea);
 
+        radius = request.getParameter("radius");
+        calculateCircleArea();
+        request.setAttribute("cArea", cArea);
+
         RequestDispatcher dispatcher =
                 getServletContext().getRequestDispatcher(destination);
         dispatcher.forward(request, response);
     }
-    
+
     private void calculateRectangleArea() {
         double area;
         area = Double.parseDouble(rlegA) * Double.parseDouble(rlegB);
         rArea = String.valueOf(area);
+    }
+    
+    private void calculateCircleArea() {
+        double area;
+        area = Double.parseDouble(radius)* Double.parseDouble(radius) * pi ;
+        cArea = String.valueOf(area);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
