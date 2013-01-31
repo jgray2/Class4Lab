@@ -1,4 +1,3 @@
-
 package Challenge1;
 
 import java.io.IOException;
@@ -14,8 +13,13 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Jenni Burgmeier
  */
-public class rectangleForwardController extends HttpServlet {
-private static final String destination = "/result.jsp";
+public class CalculationForwardController extends HttpServlet {
+
+    private static final String destination = "/result.jsp";
+    private String rlegA;
+    private String rlegB;
+    private String rArea;
+
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -30,19 +34,23 @@ private static final String destination = "/result.jsp";
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-        String rlegA = request.getParameter("rlegA");        
-        String rlegB = request.getParameter("rlegB");
-        
-        double rArea = Double.parseDouble(rlegA) * Double.parseDouble(rlegB);
 
+        rlegA = request.getParameter("rlegA");
+        rlegB = request.getParameter("rlegB");
+
+        calculateRectangleArea();
         request.setAttribute("rArea", rArea);
-        
-       RequestDispatcher dispatcher =
-                    getServletContext().getRequestDispatcher(destination);
-                dispatcher.forward(request, response);
-        }
+
+        RequestDispatcher dispatcher =
+                getServletContext().getRequestDispatcher(destination);
+        dispatcher.forward(request, response);
+    }
     
+    private void calculateRectangleArea() {
+        double area;
+        area = Double.parseDouble(rlegA) * Double.parseDouble(rlegB);
+        rArea = String.valueOf(area);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
