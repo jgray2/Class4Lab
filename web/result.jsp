@@ -26,5 +26,12 @@
             out.print("The area of the circle is: " + cArea);
             %>
         </p>
+        
+          <h1>Length of Triangle Leg</h1>
+        <p>
+            <% String tLegC = (String)request.getAttribute("tLegC");
+            out.print("The length of leg C is: " + tLegC);
+            %>
+        </p>
     </body>
 </html>
