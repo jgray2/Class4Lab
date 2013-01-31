@@ -22,7 +22,9 @@
         
         <h1>Area of Circle</h1>
         <p>
-           
+            <% String cArea = (String)request.getAttribute("cArea");
+            out.print("The area of the circle is: " + cArea);
+            %>
         </p>
     </body>
 </html>

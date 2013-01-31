@@ -2,7 +2,6 @@ package Challenge1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashSet;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +21,9 @@ public class CalculationForwardController extends HttpServlet {
     private String radius;
     private double pi = 3.14159265359;
     private String cArea;
+    private String tLegA;
+    private String tLegB;
+    private String tLegC;
 
     /**
      * Processes requests for both HTTP
@@ -40,13 +42,17 @@ public class CalculationForwardController extends HttpServlet {
 
         rlegA = request.getParameter("rlegA");
         rlegB = request.getParameter("rlegB");
-
         calculateRectangleArea();
         request.setAttribute("rArea", rArea);
 
         radius = request.getParameter("radius");
         calculateCircleArea();
         request.setAttribute("cArea", cArea);
+        
+        tLegA = request.getParameter("tLegA");
+        tLegB = request.getParameter("tLegB");
+        calculateTriangleLeg();
+        request.setAttribute("tLegC", tLegC);
 
         RequestDispatcher dispatcher =
                 getServletContext().getRequestDispatcher(destination);
@@ -63,6 +69,13 @@ public class CalculationForwardController extends HttpServlet {
         double area;
         area = Double.parseDouble(radius)* Double.parseDouble(radius) * pi ;
         cArea = String.valueOf(area);
+    }
+    
+    private void calculateTriangleLeg() {
+        double length;
+        length = Math.sqrt((Double.parseDouble(tLegA) * Double.parseDouble(tLegA) *
+                (Double.parseDouble(tLegB) * Double.parseDouble(tLegB))));
+        tLegC = String.valueOf(length);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
