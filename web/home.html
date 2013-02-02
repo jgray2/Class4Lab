@@ -7,20 +7,21 @@
     </head>
     <body>
         <h1><strong>Calculate the Area of a Rectangle</strong></h1>
-        <form>Enter the length of "A": <input type="text" name="rlegA"><br>
+        <form id="form1" name="form1" method="POST" action="CalcController.do">
+        Enter the length of "A": <input type="text" name="rlegA"><br>
             Enter the length of "B": <input type="text" name="rlegB"><br>
-        </form>
+        
         
 
         <h1><strong>Calculate the Area of a Circle</strong></h1>
-        <form> Enter the length of the radius: <input type="text" name="radius">
-        </form>
+        Enter the length of the radius: <input type="text" name="radius">
+        
         
         
         <h1><strong>Calculate the Length of leg of a Triangle</strong></h1>
-        <form> Enter the length of "A": <input type="text" name="tLegA"><br>
-        Enter the length of "B": <input type="text" name="tLegB"></form>
-        <form id="form1" name="form1" method="POST" action="Calculate.do">
+        Enter the length of "A": <input type="text" name="tLegA"><br>
+        Enter the length of "B": <input type="text" name="tLegB">
+        
         <input id="submit" name="Submit" type="submit" value="submit">
         </form>
     </body>
