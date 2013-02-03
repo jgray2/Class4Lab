@@ -12,13 +12,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Calculation</title>
     </head>
-    <body>
-        <h1>Area of Rectangle</h1>
+    <body>        
+          <h1>Length of Triangle Leg</h1>
         <p>
-            <% String rArea = (String)request.getAttribute("rArea");
-            out.print("The area of the rectangle is: " + rArea);
+            <% String tLegC = (String)request.getAttribute("tLegC");
+            out.print("The length of leg C is: " + tLegC);
             %>
         </p>
-        
     </body>
 </html>

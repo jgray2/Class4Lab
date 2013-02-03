@@ -13,10 +13,11 @@
         <title>Calculation</title>
     </head>
     <body>
-        <h1>Area of Rectangle</h1>
+               
+        <h1>Area of Circle</h1>
         <p>
-            <% String rArea = (String)request.getAttribute("rArea");
-            out.print("The area of the rectangle is: " + rArea);
+            <% String cArea = (String)request.getAttribute("cArea");
+            out.print("The area of the circle is: " + cArea);
             %>
         </p>
         
